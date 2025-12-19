@@ -236,8 +236,6 @@ const (
 )
 
 // TaskSpec specifies the task specification of Job.
-// +kubebuilder:validation:XValidation:rule="!has(self.minAvailable) || self.minAvailable <= self.replicas",message="minAvailable must not be greater than replicas"
-// +kubebuilder:validation:XValidation:rule="!has(self.partitionPolicy) || self.partitionPolicy.totalPartitions * self.partitionPolicy.partitionSize == self.replicas",message="The product of totalPartitions and partitionSize must equal replicas"
 type TaskSpec struct {
 	// Name specifies the name of tasks
 	// +kubebuilder:validation:MaxLength=63
